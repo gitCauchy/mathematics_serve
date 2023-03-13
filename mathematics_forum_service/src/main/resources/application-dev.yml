@@ -1,0 +1,24 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    url: jdbc:mysql://101.43.182.66:3306/science_forum?serverTimezone=GMT
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  data:
+  #    mongodb:
+  #      host: "101.43.182.66"
+  #      port: 27017
+  #      database: "science_forum"
+  #      username: "forum"
+  #      password: "password"
+  redis:
+    port: 6379
+    host: 101.43.182.66
+    database: 0
+
+logging:
+  config: classpath:log4j2.xml
