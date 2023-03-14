@@ -31,7 +31,6 @@ public class PostController {
      */
     @GetMapping("/getTop20HotPost")
     public ResponseEntity<List<PostVo>> getTop20HotPost() {
-        log.info("12345");
         List<PostVo> postVoList = postService.getTop20HotPost();
         return new ResponseEntity<>(postVoList, HttpStatus.OK);
     }

@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.math.mapper.UserMapper">
+    <select id="selectUserList" resultMap="userResultMap">
+        select username, gender, email, gender, state from sys_user
+        <where>
+            <if test="username != null">
+                username = #{username}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+        </where>
+    </select>
+    <resultMap id="userResultMap" type="org.math.entity.User">
+        <result property="username" column="username"/>
+    </resultMap>
+
+</mapper>

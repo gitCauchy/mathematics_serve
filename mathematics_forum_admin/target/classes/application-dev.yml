@@ -1,5 +1,5 @@
 server:
-  port: 9277
+  port: 2936
 
 spring:
   datasource:
@@ -8,11 +8,11 @@ spring:
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-  data:
-    mongodb:
-      host: "101.43.182.66"
-      port: 27017
-      database: "math_forum"
+#  data:
+#    mongodb:
+#      host: "101.43.182.66"
+#      port: 27017
+#      database: "math_forum"
   redis:
     port: 6379
     host: 101.43.182.66
@@ -20,3 +20,9 @@ spring:
 
 logging:
   config: classpath:log4j2.xml
+
+mybatis:
+  configuration:
+    cache-enabled: true
+
+  mapper-locations: classpath:mapper/*.xml
