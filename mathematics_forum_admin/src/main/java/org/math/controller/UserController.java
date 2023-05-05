@@ -6,10 +6,7 @@ import org.math.entity.User;
 import org.math.response.Response;
 import org.math.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,9 +25,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/getUserList")
-    public Response getUserList(@RequestBody User user) {
-        List<User> userList = userService.getUserList(user);
+    @GetMapping("/getUserList")
+    public Response getUserList() {
+        List<User> userList = userService.getUserList(null);
         return Response.success(userList);
     }
 }
