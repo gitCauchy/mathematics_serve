@@ -1,6 +1,10 @@
 package org.math.controller;
 
+import org.apache.ibatis.annotations.Param;
+import org.math.entity.ValidateImage;
 import org.math.response.Response;
+import org.math.service.ValidateService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,13 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/validate")
 public class ValidateController {
+    @Autowired
+    ValidateService validateService;
+
     @GetMapping(value = "/getValidateCode")
-    public Response getValidateCode(){
-        return Response.success();
+    public Response getValidateCode(@Param(value = "userId") int userId) {
+        ValidateImage validateImage = validateService.getValidateCode(userId);
+        return Response.success(validateImage);
     }
 
     @GetMapping(value = "/checkValidateCode")
-    public Response checkValidateCode(){
-        return Response.success(true);
+    public Response checkValidateCode(@Param(value = "userId") int userId, @Param(value = "code") String code) {
+        boolean result = validateService.check(userId, code);
+        return Response.success(result);
     }
 }

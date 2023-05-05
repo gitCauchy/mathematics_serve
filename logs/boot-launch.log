@@ -69,3 +69,6 @@ Caused by: java.net.SocketTimeoutException: connect timed out
 	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79) ~[mongodb-driver-core-4.6.1.jar:?]
 	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.6.1.jar:?]
 	... 4 more
+2023-05-05 10:50:11.389 +0800	INFO	org.apache.juli.logging.DirectJDKLog	173	http-nio-9277-exec-2	Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-05 10:50:11.391 +0800	INFO	org.springframework.web.servlet.FrameworkServlet	525	http-nio-9277-exec-2	Initializing Servlet 'dispatcherServlet'
+2023-05-05 10:50:11.398 +0800	INFO	org.springframework.web.servlet.FrameworkServlet	547	http-nio-9277-exec-2	Completed initialization in 7 ms
