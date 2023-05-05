@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class AddressIpUtils {
+public class AddressIpUtil {
 
     public static String getIpAddress(HttpServletRequest request) {
         String Xip = request.getHeader("X-Real-IP");

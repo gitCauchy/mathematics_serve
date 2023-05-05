@@ -2,7 +2,7 @@ package org.math.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.math.entity.AccessLog;
-import org.math.utils.AddressIpUtils;
+import org.math.utils.AddressIpUtil;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +22,7 @@ public class AccessLogInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request) {
         AccessLog accessLog = new AccessLog();
-        accessLog.setIp(AddressIpUtils.getIpAddress(request));
+        accessLog.setIp(AddressIpUtil.getIpAddress(request));
         accessLog.setUrl(request.getRequestURI());
         accessLog.setHttpMethod(request.getMethod());
         request.setAttribute(LOGGER_SEND_TIME, System.currentTimeMillis());
