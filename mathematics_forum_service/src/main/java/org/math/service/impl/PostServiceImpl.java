@@ -50,10 +50,10 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostVo> getTop20HotPost() {
 
-        List<Post> topPosts = postMongoMapper.findTop20HotPosts();
+//        List<Post> topPosts = postMongoMapper.findTop20HotPosts();
         Query query = new Query();
         query.with(Sort.by(Sort.Order.desc("hotDegree")));
-        mongoTemplate.find(Post.class);
+        List<Post> topPosts = mongoTemplate.find(query, Post.class);
 
         List<PostVo> postVoList = new ArrayList<>();
         topPosts.forEach(post -> {
@@ -129,7 +129,9 @@ public class PostServiceImpl implements PostService {
         if (postOptional.isPresent()) {
             Post post = postOptional.get();
             post.getComments().add(comment);
-            postMongoMapper.save(post);
+//            postMongoMapper.save(post);
+            mongoTemplate.insert(post
+            );
         }
 
     }
