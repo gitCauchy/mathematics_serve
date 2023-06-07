@@ -12,6 +12,11 @@ import org.math.response.PostVo;
 import org.math.service.HotListRecordService;
 import org.math.service.PostService;
 import org.math.utils.RedisUtil;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.BasicQuery;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -40,10 +45,16 @@ public class PostServiceImpl implements PostService {
 
     RedisUtil redisUtil;
 
+    MongoTemplate mongoTemplate;
+
     @Override
     public List<PostVo> getTop20HotPost() {
 
         List<Post> topPosts = postMongoMapper.findTop20HotPosts();
+        Query query = new Query();
+        query.with(Sort.by(Sort.Order.desc("hotDegree")));
+        mongoTemplate.find(Post.class);
+
         List<PostVo> postVoList = new ArrayList<>();
         topPosts.forEach(post -> {
             PostVo postVo = new PostVo();

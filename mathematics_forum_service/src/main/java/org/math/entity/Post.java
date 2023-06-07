@@ -1,6 +1,8 @@
 package org.math.entity;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,10 +15,12 @@ import java.util.List;
  *
  */
 @Data
+@Document("post")
 public class Post implements Serializable {
     /**
      * 主键 id
      */
+    @Id
     private Long id;
     /**
      * 内容
