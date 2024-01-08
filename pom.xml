@@ -5,17 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.math</groupId>
-    <artifactId>mathematics_forum</artifactId>
+    <artifactId>mathematics_serve</artifactId>
     <version>1.0</version>
     <modules>
-        <module>mathematics_forum_service</module>
-        <module>mathematics_forum_common</module>
-        <module>mathematics_forum_admin</module>
+        <module>mathematics_service</module>
+        <module>mathematics_common</module>
     </modules>
 
     <!-- 将当前项目定义为 pom -->
     <packaging>pom</packaging>
-    <name>mathematics_forum</name>
+    <name>mathematics_serve</name>
 
     <!-- 指定当前项目继承 spring-boot -->
     <parent>
